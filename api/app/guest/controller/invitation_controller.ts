@@ -8,7 +8,7 @@ export default class InvitationController {
 
     console.log(email, teamId)
 
-    const user = await User.findBy('email', email)
+    const user: User | null = await User.findBy('email', email)
 
     if (user) {
       return response.status(400).json({ message: 'Utilisateur déjà invité.' })
