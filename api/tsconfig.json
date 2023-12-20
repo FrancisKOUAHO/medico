@@ -6,6 +6,7 @@
     "paths": {
       "#auth/*": ["./app/auth/*.js"],
       "#team/*": ["./app/team/*.js"],
+      "#guest/*": ["./app/guest/*.js"],
       "#controllers/*": ["./app/controllers/*.js"],
       "#exceptions/*": ["./app/exceptions/*.js"],
       "#models/*": ["./app/models/*.js"],
