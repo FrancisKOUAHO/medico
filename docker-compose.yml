@@ -10,5 +10,20 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: medico
 
+  minio:
+    image: 'minio/minio:latest'
+    ports:
+      - "9000:9000"
+      - "8700:8700"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    volumes:
+      - minio:/data/minio
+    command: 'minio server /data/minio --console-address ":8700"'
+
 volumes:
   -psql-data:
+  minio:
+    driver: local
+

@@ -8,6 +8,7 @@
 */
 
 import router from '@adonisjs/core/services/router'
+import FileController from '#file/controllers/file_controller'
 
 const TeamController = () => import('#team/controllers/team_controller')
 const SessionsController = () => import('#auth/controllers/sessions_controller')
@@ -41,6 +42,12 @@ router
           router.post('invite', [InvitationController, 'store'])
         })
         .prefix('team')
+
+      router
+        .group(() => {
+          router.post('upload', [FileController, 'upload'])
+        })
+        .prefix('file')
     })
   })
   .prefix('api/v1/')
