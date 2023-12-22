@@ -2,6 +2,7 @@ import mail from '@adonisjs/mail/services/main'
 import User from '#models/user'
 import Invitation from '#models/invitation'
 import { HttpContext } from '@adonisjs/core/http'
+import transmit from '@adonisjs/transmit/services/main'
 
 export default class InvitationController {
   async store({ request, response }: HttpContext) {
@@ -49,5 +50,9 @@ export default class InvitationController {
     }
   }
 
-  async notificationViaSSE({}: HttpContext) {}
+  async notificationViaSSE({ request, response }: HttpContext) {
+    transmit.broadcast('notification-sse', { notification: request.body })
+
+    return response.noContent()
+  }
 }
