@@ -49,6 +49,7 @@
     "@adonisjs/lucid": "^19.0.0-6",
     "@adonisjs/mail": "^9.0.0-9",
     "@adonisjs/session": "^7.0.0-14",
+    "@adonisjs/transmit": "github:adonisjs/transmit",
     "@poppinss/utils": "^6.7.0",
     "@vinejs/vine": "^1.7.0",
     "luxon": "^3.4.4",

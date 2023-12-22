@@ -49,5 +49,5 @@ export default class InvitationController {
     }
   }
 
-  async notificationViaSSE({ request, response }: HttpContext) {}
+  async notificationViaSSE({}: HttpContext) {}
 }
