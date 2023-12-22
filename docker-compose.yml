@@ -13,7 +13,7 @@ services:
   minio:
     image: 'minio/minio:latest'
     ports:
-      - "9000:9000"
+      - "6000:6000"
       - "8700:8700"
     environment:
       MINIO_ACCESS_KEY: minio

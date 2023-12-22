@@ -8,11 +8,11 @@
 */
 
 import router from '@adonisjs/core/services/router'
+const InvitationController = () => import('#controllers/invitation_controller')
 const FileController = () => import('../app/controllers/file_controller.js')
-
-const TeamController = () => import('#team/controllers/team_controller')
+const TeamController = () => import('../app/controllers/team_controller.js')
 const SessionsController = () => import('../app/controllers/sessions_controller.js')
-const InvitationController = () => import('../app/controllers/invitation_controller.js')
+const SignatureController = () => import('../app/controllers/signature_controller.js')
 
 router.get('/', ({ response }) => response.ok({ uptime: Math.round(process.uptime()) }))
 router.get('health', ({ response }) => response.noContent())
@@ -32,22 +32,36 @@ router
       router
         .group(() => {
           router.get('me', [SessionsController, 'me'])
-          router.delete('signout', [SessionsController, 'destroy'])
+          router.delete('sign-out', [SessionsController, 'destroy'])
         })
         .prefix('profile')
 
       router
         .group(() => {
           router.post('create-team', [TeamController, 'create'])
-          router.post('invite', [InvitationController, 'store'])
+          router.post('invitation-join-team', [TeamController, 'invitationJoinTeam'])
+          router.post('add-membre', [TeamController, 'addMember'])
         })
         .prefix('team')
+
+      router
+        .group(() => {
+          router.post('invitation-sign-pdf', [SignatureController, 'invitationForSign'])
+        })
+        .prefix('signature')
 
       router
         .group(() => {
           router.post('upload', [FileController, 'upload'])
         })
         .prefix('file')
+
+      router
+        .group(() => {
+          router.post('send-file-via-mail', [InvitationController, 'store'])
+          router.post('notification-sse', [InvitationController, 'notificationViaSSE'])
+        })
+        .prefix('invitation')
     })
   })
   .prefix('api/v1/')

@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
+import { BaseModel, column, manyToMany } from '@adonisjs/lucid/orm'
 import { Secret } from '@poppinss/utils'
-import Team from '#team/models/team'
-import type { HasMany } from '@adonisjs/lucid/types/relations'
 import hash from '@adonisjs/core/services/hash'
+import Team from '#models/team'
+import * as relations from '@adonisjs/lucid/types/relations'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -33,17 +33,10 @@ export default class User extends BaseModel {
   @column()
   declare googleId: string
 
-  @column()
-  declare isInvited: boolean
-
-  @column()
-  declare isTeamLeader: boolean
-
-  @column()
-  declare team_id: number
-
-  @hasMany(() => Team)
-  declare teams: HasMany<typeof Team>
+  @manyToMany(() => Team, {
+    pivotTable: 'team_members',
+  })
+  declare teams: relations.ManyToMany<typeof Team>
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

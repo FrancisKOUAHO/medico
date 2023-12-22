@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, column, hasMany } from '@adonisjs/lucid/orm'
 import User from './user.js'
 import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
-import FileSignature from '#file_signature/models/file_signature'
+import Signature from '#models/signature'
 
 export default class File extends BaseModel {
   @column({ isPrimary: true })
@@ -19,8 +19,8 @@ export default class File extends BaseModel {
   })
   declare users: BelongsTo<typeof User>
 
-  @hasMany(() => FileSignature)
-  declare fileSignature: HasMany<typeof FileSignature>
+  @hasMany(() => Signature)
+  declare fileSignature: HasMany<typeof Signature>
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

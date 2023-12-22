@@ -1,4 +1,4 @@
-import {BaseSchema} from '@adonisjs/lucid/schema'
+import { BaseSchema } from '@adonisjs/lucid/schema'
 
 export default class extends BaseSchema {
   protected tableName = 'users'
@@ -12,8 +12,6 @@ export default class extends BaseSchema {
       table.string('access_token').nullable()
       table.string('refresh_token').nullable()
       table.string('google_id').nullable()
-      table.boolean('is_invited').defaultTo(false)
-      table.boolean('is_team_leader').defaultTo(false)
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

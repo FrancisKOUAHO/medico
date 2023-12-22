@@ -1,13 +1,13 @@
 import { HttpContext } from '@adonisjs/core/http'
-import { cuid } from '@adonisjs/core/helpers'
 import app from '@adonisjs/core/services/app'
-import FileSignature from '#models/file_signature'
+import Signature from '#models/signature'
+import File from '#models/file'
 
 export default class FileController {
   async show({ request, response }: HttpContext) {
     const { id } = request.params()
 
-    const fileSignature = await FileSignature.findOrFail(id)
+    const fileSignature = await Signature.findOrFail(id)
 
     return response.ok(fileSignature)
   }
@@ -15,7 +15,7 @@ export default class FileController {
   async store({ request, response }: HttpContext) {
     const payload = request.all()
 
-    const fileSignature = await FileSignature.create(payload)
+    const fileSignature = await Signature.create(payload)
 
     return response.created(fileSignature)
   }
@@ -25,7 +25,7 @@ export default class FileController {
 
     const payload = request.all()
 
-    const fileSignature = await FileSignature.findOrFail(id)
+    const fileSignature = await Signature.findOrFail(id)
 
     fileSignature.merge(payload)
 
@@ -37,15 +37,14 @@ export default class FileController {
   async destroy({ request, response }: HttpContext) {
     const { id } = request.params()
 
-    const fileSignature = await FileSignature.findOrFail(id)
+    const fileSignature = await Signature.findOrFail(id)
 
     await fileSignature.delete()
 
     return response.noContent()
   }
 
-  async upload({ request, response, auth }: HttpContext) {
-    const { team_id } = request.all()
+  async upload({ request, response }: HttpContext) {
     const file = request.file('file', {
       size: '2mb',
       extnames: ['pdf', 'docx', 'doc', 'png', 'jpg', 'jpeg'],
@@ -55,19 +54,15 @@ export default class FileController {
       return response.badRequest('File is required')
     }
 
-    console.log(file)
+    await file.move(app.makePath('uploads'))
 
-    const save_file = await file.move(app.makePath('uploads'), {
-      name: `${cuid()}.${file.extname}`,
-    })
-
-    const create_file = auth.user?.related('files').create({
-      path: save_file,
-      team_id,
+    const create_file = await File.create({
+      file_path: file.filePath,
+      user_id: 1,
     })
 
     create_file?.save()
 
-    response.ok(create_file)
+    return response.created(create_file)
   }
 }
