@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
-import User from '#auth/models/user'
+import User from '../../models/user.js'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
 export default class Team extends BaseModel {

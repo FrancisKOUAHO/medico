@@ -1,5 +1,7 @@
 import { HttpContext } from '@adonisjs/core/http'
-import FileSignature from '#file_signature/models/file_signature'
+import { cuid } from '@adonisjs/core/helpers'
+import app from '@adonisjs/core/services/app'
+import FileSignature from '#models/file_signature'
 
 export default class FileController {
   async show({ request, response }: HttpContext) {
@@ -42,10 +44,11 @@ export default class FileController {
     return response.noContent()
   }
 
-  async upload({ request, response }: HttpContext) {
+  async upload({ request, response, auth }: HttpContext) {
+    const { team_id } = request.all()
     const file = request.file('file', {
       size: '2mb',
-      extnames: ['pdf'],
+      extnames: ['pdf', 'docx', 'doc', 'png', 'jpg', 'jpeg'],
     })
 
     if (!file) {
@@ -53,5 +56,18 @@ export default class FileController {
     }
 
     console.log(file)
+
+    const save_file = await file.move(app.makePath('uploads'), {
+      name: `${cuid()}.${file.extname}`,
+    })
+
+    const create_file = auth.user?.related('files').create({
+      path: save_file,
+      team_id,
+    })
+
+    create_file?.save()
+
+    response.ok(create_file)
   }
 }

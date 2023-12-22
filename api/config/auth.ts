@@ -7,7 +7,7 @@ const authConfig = defineConfig({
   guards: {
     web: sessionGuard({
       provider: providers.lucid({
-        model: () => import('#auth/models/user'),
+        model: () => import('../app/models/user.js'),
         uids: ['email'],
       }),
     }),

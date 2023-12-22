@@ -1,4 +1,4 @@
-import User from '#auth/models/user'
+import User from '../models/user.js'
 import { HttpContext } from '@adonisjs/core/http'
 import mail from '@adonisjs/mail/services/main'
 

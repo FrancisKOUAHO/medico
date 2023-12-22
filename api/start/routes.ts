@@ -8,11 +8,11 @@
 */
 
 import router from '@adonisjs/core/services/router'
-import FileController from '#file/controllers/file_controller'
+const FileController = () => import('../app/controllers/file_controller.js')
 
 const TeamController = () => import('#team/controllers/team_controller')
-const SessionsController = () => import('#auth/controllers/sessions_controller')
-const InvitationController = () => import('#guest/controller/invitation_controller')
+const SessionsController = () => import('../app/controllers/sessions_controller.js')
+const InvitationController = () => import('../app/controllers/invitation_controller.js')
 
 router.get('/', ({ response }) => response.ok({ uptime: Math.round(process.uptime()) }))
 router.get('health', ({ response }) => response.noContent())

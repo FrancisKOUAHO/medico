@@ -1,6 +1,6 @@
 import { HttpContext } from '@adonisjs/core/http'
 import { Secret } from '@poppinss/utils'
-import User from '#auth/models/user'
+import User from '#models/user'
 
 export default class SessionsController {
   async signIn({ request, response, auth }: HttpContext) {
