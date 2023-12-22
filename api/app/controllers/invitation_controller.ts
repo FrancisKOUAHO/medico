@@ -47,11 +47,13 @@ export default class InvitationController {
         </html>
         `)
       })
-    }
-  }
 
-  async notificationViaSSE({ request, response }: HttpContext) {
-    transmit.broadcast('notification-sse', { notification: request.body })
+      if (user) {
+        transmit.broadcast('notification-sse', { notification: request.body })
+      }
+
+      return response.status(200).json({ message: 'Invitation envoyée.' })
+    }
 
     return response.noContent()
   }

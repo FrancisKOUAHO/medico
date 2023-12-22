@@ -8,6 +8,7 @@
 */
 
 import router from '@adonisjs/core/services/router'
+
 const InvitationController = () => import('#controllers/invitation_controller')
 const FileController = () => import('../app/controllers/file_controller.js')
 const TeamController = () => import('../app/controllers/team_controller.js')
@@ -59,7 +60,6 @@ router
       router
         .group(() => {
           router.post('send-file-via-mail', [InvitationController, 'store'])
-          router.post('notification-sse', [InvitationController, 'notificationViaSSE'])
         })
         .prefix('invitation')
     })
