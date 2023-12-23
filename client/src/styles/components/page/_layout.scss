@@ -1,0 +1,18 @@
+@use '../../settings' as *;
+
+.c-layout {
+  display: flex;
+  overflow: hidden;
+  margin-left: 16rem;
+  margin-right: 1.5rem;
+
+  @media (max-width: $tablet) {
+    margin-left: 13rem;
+    margin-right: 1rem;
+  }
+
+  @media (max-width: $mobile) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
