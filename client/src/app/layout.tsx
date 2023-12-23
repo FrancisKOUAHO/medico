@@ -31,8 +31,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" href="/favicon.ico" />
     </head>
-    <body className="bg-[#E6EEF0]">
-    <main>
+    <body>
+    <main className="c-layout">
       <LanguageProvider>
         <NextUIProvider>
           <QueryClientProvider client={queryClient}>

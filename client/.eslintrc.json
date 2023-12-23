@@ -1,3 +1,73 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "airbnb",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "next/core-web-vitals",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended"
+  ],
+  "plugins": [
+    "prettier",
+    "@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "prettier/prettier": "error",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "import/no-named-as-default": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-array-index-key": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "no-unsafe-optional-chaining": "off",
+    "jsx-a11y/iframe-has-title": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/require-default-props": "off",
+    "no-use-before-define": "off",
+    "consistent-return": "off",
+    "no-shadow": "off",
+    "no-restricted-globals": "off",
+    "@next/next/no-img-element": "off",
+    "react/no-unescaped-entities": "off",
+    "camelcase": "off",
+    "react/button-has-type": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/no-unstable-nested-components": "off"
+  }
 }
