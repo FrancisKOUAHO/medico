@@ -5,6 +5,14 @@ import { HttpContext } from '@adonisjs/core/http'
 import transmit from '@adonisjs/transmit/services/main'
 
 export default class InvitationController {
+  async show({ request, response }: HttpContext) {
+    const { id } = request.params()
+
+    const invitation = await Invitation.findOrFail(id)
+
+    return response.ok(invitation)
+  }
+
   async store({ request, response }: HttpContext) {
     const { userids, fileId } = request.only(['userids', 'fileId'])
 
@@ -54,6 +62,30 @@ export default class InvitationController {
 
       return response.status(200).json({ message: 'Invitation envoyée.' })
     }
+
+    return response.noContent()
+  }
+
+  async update({ request, response }: HttpContext) {
+    const { id } = request.params()
+
+    const payload = request.all()
+
+    const invitation = await Invitation.findOrFail(id)
+
+    invitation.merge(payload)
+
+    await invitation.save()
+
+    return response.ok(invitation)
+  }
+
+  async destroy({ request, response }: HttpContext) {
+    const { id } = request.params()
+
+    const invitation = await Invitation.findOrFail(id)
+
+    await invitation.delete()
 
     return response.noContent()
   }

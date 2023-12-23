@@ -8,12 +8,6 @@ export default class extends BaseSchema {
       table.increments('id')
       table.integer('file_id').unsigned().references('id').inTable('files').onDelete('CASCADE')
       table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
-      table
-        .integer('invited_user_id')
-        .unsigned()
-        .references('id')
-        .inTable('users')
-        .onDelete('CASCADE')
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

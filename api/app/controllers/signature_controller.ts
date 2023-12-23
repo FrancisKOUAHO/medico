@@ -5,42 +5,17 @@ import Signature from '#models/signature'
 export default class SignatureController {
   async invitationForSign({ request, response }: HttpContext) {
     const user = 1
-    logger.info(user)
-    const { fileId, invitedUserIds } = request.all()
+    const data = request.only(['file_id', 'user_id', 'signed', 'approved', 'initials'])
 
-    console.log(fileId, invitedUserIds)
+    const signature = await Signature.create({ ...data, user_id: user })
 
-    logger.info(fileId, invitedUserIds)
+    logger.info('info', signature)
 
-    const invitations: any[] = []
-
-    logger.info(invitations)
-
-    if (invitedUserIds.length === 1) {
-      const invitation: Signature = await Signature.create({
-        file_id: fileId,
-        user_id: user,
-        invited_user_id: user,
-      })
-
-      const save: Promise<Signature> = invitation.save()
-
-      console.log('save', save)
+    if (!signature) {
+      logger.error('Signature not created')
+      return response.status(500).json({ message: 'Signature not created' })
     }
 
-    for (const invitedUserId of invitedUserIds) {
-      logger.info(invitedUserId)
-      const invitation: Signature = await Signature.create({
-        file_id: fileId,
-        user_id: user,
-        invited_user_id: invitedUserId,
-      })
-
-      const save: Promise<Signature> = invitation.save()
-
-      console.log('save2', save)
-    }
-
-    return response.status(201).json({ message: 'Invitations created' })
+    return response.status(201).json({ message: 'Signature created' })
   }
 }

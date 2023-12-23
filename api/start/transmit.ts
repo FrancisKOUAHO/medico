@@ -4,7 +4,7 @@ import { HttpContext } from '@adonisjs/core/http'
 transmit.authorizeChannel<{ id: number }>(
   'send-file-via-mail/:id',
   async (_ctx: HttpContext, params) => {
-    return _ctx.auth.user?.id === params.id
+    return _ctx.auth.user?.id === +params.id
   }
 )
 
