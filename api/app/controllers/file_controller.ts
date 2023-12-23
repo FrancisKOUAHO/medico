@@ -2,6 +2,7 @@ import { HttpContext } from '@adonisjs/core/http'
 import app from '@adonisjs/core/services/app'
 import Signature from '#models/signature'
 import File from '#models/file'
+import TeamMember from '#models/team_members'
 
 export default class FileController {
   async show({ request, response }: HttpContext) {
@@ -50,6 +51,12 @@ export default class FileController {
       extnames: ['pdf', 'docx', 'doc', 'png', 'jpg', 'jpeg'],
     })
 
+    const userId = 1
+
+    const { team_id } = await TeamMember.findByOrFail('user_id', userId)
+
+    console.log('find_user_team', team_id)
+
     if (!file) {
       return response.badRequest('File is required')
     }
@@ -58,6 +65,7 @@ export default class FileController {
 
     const create_file = await File.create({
       file_path: file.filePath,
+      team_id,
       user_id: 1,
     })
 
