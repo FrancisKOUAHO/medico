@@ -1,7 +1,7 @@
 @use '../settings/' as *;
 
 .u-bg-primary {
-  background-color: $dark-teal-500;
+  background-color: $bleu-light-500;
 }
 
 .u-primary-text {
@@ -9,9 +9,9 @@
 }
 
 .u-secondary-text {
-  color: $charcoal-400;
+  color: $white;
 }
 
 .u-medium-grey-text {
-  color: $charcoal-500;
+  color: $white;
 }
