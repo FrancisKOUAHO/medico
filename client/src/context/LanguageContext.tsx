@@ -16,9 +16,10 @@ type LanguageContextType = {
   setLanguage: (lang: string) => void
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined,
-)
+const LanguageContext = createContext<LanguageContextType | undefined>({
+  language: 'fr',
+  setLanguage: () => {},
+})
 
 interface LanguageProviderProps {
   children: ReactNode
@@ -33,7 +34,7 @@ export const LanguageProvider: FunctionComponent<LanguageProviderProps> = ({
 
   useEffect(() => {
     setLanguage(userLocale)
-  }, [language])
+  }, [language, userLocale])
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>

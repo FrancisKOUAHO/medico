@@ -3,10 +3,7 @@
     "airbnb",
     "prettier",
     "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals",
-    "next/core-web-vitals",
-    "plugin:testing-library/react",
-    "plugin:jest-dom/recommended"
+    "next/core-web-vitals"
   ],
   "plugins": [
     "prettier",

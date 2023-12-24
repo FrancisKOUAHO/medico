@@ -3,7 +3,10 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
 import { CookieValueTypes, getCookie } from 'cookies-next'
 
-export const AuthContext = createContext<any>({})
+export const AuthContext = createContext<any>({
+  isAuthenticated: () => false,
+  user: null,
+})
 
 export const useAuth = () => useContext(AuthContext)
 
