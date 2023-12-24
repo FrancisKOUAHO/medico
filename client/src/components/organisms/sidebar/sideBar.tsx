@@ -23,7 +23,7 @@ const Sidebar: FunctionComponent = () => {
   return (
     <section className="c-sidebar">
       <Link
-        href="/dashboard"
+        href="dashboard"
         className={pathname === '/dashboard' ? 'active' : ''}
         onClick={() => sethide(false)}
       >
