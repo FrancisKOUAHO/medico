@@ -34,10 +34,10 @@ const Page = () => {
                   <thead className="bg-white text-black">
                     <tr>
                       <th className="p-3">Nom | Prénom</th>
-                      <th className="p-3 text-left">Equipe</th>
-                      <th className="p-3 text-left">Price</th>
-                      <th className="p-3 text-left">Status</th>
-                      <th className="p-3 text-left">Action</th>
+                      <th className="p-3">Equipe</th>
+                      <th className="p-3">email</th>
+                      <th className="p-3">Status</th>
+                      <th className="p-3">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -45,30 +45,29 @@ const Page = () => {
                       <td className="p-3">
                         <div className="flex align-items-center">
                           <div className="ml-3">
-                            <div className="">Francis KOUAHO</div>
-                            <div className="text-black">
-                              kouahofrancis@rgmail.com
-                            </div>
+                            <div>Francis KOUAHO</div>
                           </div>
                         </div>
                       </td>
-                      <td className="p-3">Technology</td>
-                      <td className="p-3 font-bold">200.00$</td>
+                      <td className="p-3">GOOD</td>
+                      <td className="p-3 font-bold">
+                        kouahofrancis@rgmail.com
+                      </td>
                       <td className="p-3">
-                        <span className="bg-green-400 text-gray-50 rounded-full p-1.5">
-                          available
+                        <span className="bg-[#493fff] text-white rounded-full p-1.5">
+                          en cours de validation
                         </span>
                       </td>
                       <td className="flex items-center w-full">
                         <Link
                           href="/"
-                          className="text-gray-400 hover:text-gray-100 mx-2"
+                          className="text-black hover:text-[493fff] mx-2"
                         >
                           <FileEdit />
                         </Link>
                         <Link
                           href="/"
-                          className="text-gray-400 hover:text-gray-100 ml-2"
+                          className="text-black hover:text-[493fff] ml-2"
                         >
                           <Trash2 />
                         </Link>

@@ -1,0 +1,61 @@
+@use '../../settings' as *;
+
+.c-input {
+  position: relative;
+  padding: 16px;
+  height: 60px;
+  flex: 1 1 180px;
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid #c2c6cc;
+  @include flex($justify: center, $dir: column);
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+
+  &__subtitle {
+    color: $black;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  &__input {
+    width: 100%;
+    margin-bottom: 15px;
+    color: #000000;
+
+    &::placeholder {
+      color: #000000;
+      font-size: 100px;
+    }
+  }
+}
+
+.input {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: $x-small;
+  color: $white;
+}
+
+.input-rounded {
+  border-radius: 30px;
+}
+
+.input::-webkit-input-placeholder {
+  font-size: 11px;
+  color: $black;
+}
+
+.input::-moz-placeholder {
+  font-size: $x-small;
+  color: $black;
+}
+
+.input::-ms-input-placeholder {
+  font-size: $x-small;
+  font-weight: 300;
+  color: $black;
+}
