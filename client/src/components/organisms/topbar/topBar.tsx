@@ -1,10 +1,12 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import Dropdown from '@/components/atoms/dropdown'
 import { Bell, BellDot, LogOut, User, UserCircle, XCircle } from 'lucide-react'
 import { useState } from 'react'
 
 const TopBar = () => {
+  const pathname = usePathname()
   const [isNotification, setIsNotification] = useState(false)
   const [isNotificationOpen, setIsNotificationOpen] = useState(false)
   const [isActive, setIsActive] = useState(false)
@@ -34,7 +36,7 @@ const TopBar = () => {
   return (
     <nav className="c-topbar">
       <div className="c-topbar__logo">
-        <h1>Auction</h1>
+        <h2>{pathname.slice(1)}</h2>
       </div>
 
       <div className="c-topbar__container">

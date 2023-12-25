@@ -9,6 +9,7 @@ import {
   LayoutDashboard,
   MousePointerSquare,
   Tv2,
+  Users,
 } from 'lucide-react'
 
 import { usePathname } from 'next/navigation'
@@ -23,25 +24,33 @@ const Sidebar: FunctionComponent = () => {
   return (
     <section className="c-sidebar">
       <Link
-        href="dashboard"
+        href="/dashboard"
         className={pathname === '/dashboard' ? 'active' : ''}
         onClick={() => sethide(false)}
       >
         <LayoutDashboard />
         Dashboard
       </Link>
+      <Link
+        href="/dashboard/team"
+        className={pathname === 'team' ? 'active' : ''}
+        onClick={() => sethide(false)}
+      >
+        <Users />
+        Equipe
+      </Link>
       <button
         onClick={toggle}
         className={
-          pathname === '/dashboard/inspection/summary' ||
-          pathname === '/dashboard/inspection/display' ||
-          pathname === '/dashboard/inspection/download'
+          pathname === '/dashboard/document' ||
+          pathname === '/dashboard/document/add' ||
+          pathname === '/dashboard/document/download'
             ? 'active'
             : ''
         }
       >
         <MousePointerSquare />
-        Inspections
+        Documents
       </button>
       <div
         className={
@@ -51,31 +60,27 @@ const Sidebar: FunctionComponent = () => {
         }
       >
         <Link
-          href="/dashboard/inspection/summary"
-          className={
-            pathname === '/dashboard/inspection/summary' ? 'active' : ''
-          }
-        >
-          <Grid3X3 />
-          Summary
-        </Link>
-        <Link
-          href="/dashboard/inspection/display"
-          className={
-            pathname === '/dashboard/inspection/display' ? 'active' : ''
-          }
+          href="/dashboard/document"
+          className={pathname === '/dashboard/document' ? 'active' : ''}
         >
           <Tv2 />
-          Display
+          Afficher
         </Link>
         <Link
-          href="/dashboard/inspection/download"
+          href="/dashboard/document/add"
+          className={pathname === '/dashboard/document/add' ? 'active' : ''}
+        >
+          <Grid3X3 />
+          Ajouter un document
+        </Link>
+        <Link
+          href="/dashboard/document/download"
           className={
-            pathname === '/dashboard/inspection/download' ? 'active' : ''
+            pathname === '/dashboard/document/download' ? 'active' : ''
           }
         >
           <DownloadCloud />
-          Download
+          Télécharger
         </Link>
       </div>
     </section>
