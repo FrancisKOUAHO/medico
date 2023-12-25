@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import Dropdown from '@/components/atoms/dropdown'
+import Dropdown from '@/components/atoms/dropdown/dropdown'
 import { Bell, BellDot, LogOut, User, UserCircle, XCircle } from 'lucide-react'
 import { useState } from 'react'
 

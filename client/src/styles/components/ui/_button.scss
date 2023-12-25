@@ -1,0 +1,52 @@
+@use '../../settings' as *;
+
+.c-button {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  &--primary {
+    color: $white;
+    background-color: $bleu-light-500;
+
+    &:hover {
+      background-color: $bleu-light-800;
+    }
+  }
+
+  &--secondary {
+    color: $white;
+    background-color: $bleu-light-400;
+
+    &:hover {
+      background-color: $bleu-light-400;
+    }
+  }
+
+  &--small {
+    font-size: $x3-small;
+    padding: $x4-small $medium;
+  }
+
+  &--medium {
+    font-size: $x-small;
+    padding: 11px $large;
+  }
+
+  &--large {
+    font-size: $medium;
+    padding: $x3-small $x2-large;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: $x3-small $x2-large;
+  }
+}

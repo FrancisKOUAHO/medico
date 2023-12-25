@@ -1,0 +1,92 @@
+@use '../../settings' as *;
+
+.c-team {
+  padding: 24px 32px;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__left {
+      width: 75%;
+
+      .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+          margin: 20px 0;
+        }
+
+        .group-button {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+
+      .table {
+        border-spacing: 0 15px;
+
+        i {
+          font-size: 1rem !important;
+        }
+
+        .table tr {
+          border-radius: 20px;
+        }
+
+        tr td:nth-child(n+5),
+        tr th:nth-child(n+5) {
+          border-radius: 0 .625rem .625rem 0;
+        }
+
+        tr td:nth-child(1),
+        tr th:nth-child(1) {
+          border-radius: .625rem 0 0 .625rem;
+        }
+      }
+    }
+
+    &__right {
+      width: 25%;
+      max-width: 250px;
+
+      .card {
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.043);
+        border-radius: 8px;
+        background-color: $white;
+        height: 100%;
+        width: 100%;
+
+        h5 {
+          font-size: 1.2rem;
+          line-height: 1.5rem;
+          font-weight: 600;
+          color: $black;
+          text-align: center;
+        }
+
+        ul {
+          margin: 20px 10px;
+
+          li {
+            p {
+              font-size: 1.2rem;
+              line-height: 1.5rem;
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

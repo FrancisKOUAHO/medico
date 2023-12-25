@@ -33,7 +33,7 @@ const Sidebar: FunctionComponent = () => {
       </Link>
       <Link
         href="/dashboard/team"
-        className={pathname === 'team' ? 'active' : ''}
+        className={pathname === '/dashboard/team' ? 'active' : ''}
         onClick={() => sethide(false)}
       >
         <Users />
