@@ -4,10 +4,10 @@ import React, { useState } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ToastContainer } from 'react-toastify'
-
-import '../styles/_main.scss'
 import { NextUIProvider } from '@nextui-org/react'
 import { LanguageProvider } from '@/context/LanguageContext'
+
+import '../styles/_main.scss'
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const [queryClient] = useState(
