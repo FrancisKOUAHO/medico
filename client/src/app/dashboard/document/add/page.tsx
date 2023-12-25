@@ -127,7 +127,7 @@ const Page = () => {
           <iframe
             src="https://arxiv.org/pdf/quant-ph/0410100.pdf"
             width="100%"
-            height="480"
+            height="440"
             title="PDF Preview"
           />
         )}
