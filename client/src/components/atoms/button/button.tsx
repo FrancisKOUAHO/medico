@@ -3,6 +3,7 @@ import ButtonProps from '@/types/ButtonProps'
 
 const Button: FunctionComponent<ButtonProps> = ({
   primary = true,
+  className,
   size = 'medium',
   label,
   backgroundColor,
@@ -19,6 +20,8 @@ const Button: FunctionComponent<ButtonProps> = ({
         'c-button',
         `c-button--${size}`,
         `c-button--${backgroundColor}`,
+        `${className}`,
+
         mode,
       ].join(' ')}
       onClick={onClick}

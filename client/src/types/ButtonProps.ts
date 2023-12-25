@@ -2,6 +2,7 @@ import { HTMLAttributes, ReactNode } from 'react'
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   primary?: boolean
+  className?: string
   backgroundColor?: string
   size?: 'small' | 'medium' | 'large'
   label?: string

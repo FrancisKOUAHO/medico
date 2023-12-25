@@ -64,6 +64,10 @@
       max-width: 500px;
 
       .card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.043);
@@ -80,9 +84,17 @@
         }
 
         ul {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 25px;
           margin: 20px 10px;
 
           li {
+            .card__checkbox {
+              border: 1px solid $bleu-light-500;
+            }
+
             p {
               font-size: 1.2rem;
               line-height: 1.5rem;
@@ -100,7 +112,7 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.043);
     border-radius: 8px;
     background-color: $white;
-    height: 100%;
+    height: 510px;
     width: 100%;
   }
 }
