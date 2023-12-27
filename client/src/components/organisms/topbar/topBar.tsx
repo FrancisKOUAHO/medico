@@ -9,7 +9,7 @@ const TopBar = () => {
   const pathname = usePathname()
   const [isNotification, setIsNotification] = useState(false)
   const [isNotificationOpen, setIsNotificationOpen] = useState(false)
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(true)
   const [notifications, setNotifications] = useState([
     {
       title: 'Nouvelle demande de devis',
@@ -42,10 +42,10 @@ const TopBar = () => {
       <div className="c-topbar__container">
         <div className="c-topbar__container__left">
           <div className="c-notification">
-            {isNotification ? (
+            {notifications && notifications[0].active ? (
               <BellDot
                 onClick={toggleNotification}
-                className="cursor-pointer"
+                className="cursor-pointer text-red-500"
               />
             ) : (
               <Bell onClick={toggleNotification} className="cursor-pointer" />

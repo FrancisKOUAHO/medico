@@ -28,7 +28,6 @@ const Page = () => {
     onOpenAdd()
   }
 
-  console.log('Hello World')
   return (
     <section className="c-team">
       <div className="c-team__container">
