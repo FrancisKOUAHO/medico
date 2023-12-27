@@ -1,8 +1,33 @@
+'use client'
+
 import Link from 'next/link'
 import { Plus, Trash2, FileEdit } from 'lucide-react'
 import Button from '@/components/atoms/button/button'
+import { Modal, useDisclosure } from '@nextui-org/react'
+import ModalUser from '@/components/atoms/modal/modalUser'
+import ModalAddUser from '@/components/atoms/modal/modalAddUser'
 
 const Page = () => {
+  const {
+    isOpen: isOpenTeam,
+    onOpen: onOpenTeam,
+    onClose: onCloseTeam,
+  } = useDisclosure()
+
+  const {
+    isOpen: isOpenAdd,
+    onOpen: onOpenAdd,
+    onClose: onCloseAdd,
+  } = useDisclosure()
+
+  const handleOpenTeam = () => {
+    onOpenTeam()
+  }
+
+  const handleOpenAdd = () => {
+    onOpenAdd()
+  }
+
   console.log('Hello World')
   return (
     <section className="c-team">
@@ -17,16 +42,19 @@ const Page = () => {
                 icon={<Plus />}
                 primary
                 size="small"
+                onClick={() => handleOpenTeam()}
               />
               <Button
                 label="ajouter un membre"
                 icon={<Plus />}
                 primary
                 size="small"
+                onClick={() => handleOpenAdd()}
               />
             </div>
           </div>
-
+          <ModalUser isOpenTeam={isOpenTeam} onCloseTeam={onCloseTeam} />
+          <ModalAddUser isOpenAdd={isOpenAdd} onCloseAdd={onCloseAdd} />
           <div className="w-full">
             <div className="col-span-12">
               <div className="overflow-auto lg:overflow-visible ">

@@ -1,0 +1,57 @@
+@use '../../settings' as *;
+
+
+.c-card {
+  padding: 24px 32px;
+
+  &__container {
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: $medium;
+      padding: $medium;
+
+      .c-card__content {
+        background-color: $white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba($black, 0.1);
+        padding: $medium;
+        margin-bottom: $medium;
+        display: flex;
+        flex-direction: column;
+        gap: $medium;
+
+        &__header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: $medium;
+        }
+
+        &__title {
+          font-size: $medium;
+          font-weight: 700;
+        }
+
+        &__description {
+          font-size: $small;
+        }
+
+        &__content {
+          display: flex;
+          flex-direction: column;
+          gap: $medium;
+        }
+
+        &__footer {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: $medium;
+        }
+      }
+
+    }
+  }
+}

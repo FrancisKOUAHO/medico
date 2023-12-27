@@ -73,15 +73,6 @@ const Sidebar: FunctionComponent = () => {
           <Grid3X3 />
           Ajouter un document
         </Link>
-        <Link
-          href="/dashboard/document/download"
-          className={
-            pathname === '/dashboard/document/download' ? 'active' : ''
-          }
-        >
-          <DownloadCloud />
-          Télécharger
-        </Link>
       </div>
     </section>
   )
